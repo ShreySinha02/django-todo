@@ -1,0 +1,32 @@
+{% extends 'todo/base.html' %}
+{% load static %}
+{% block content %}
+{% comment %} <h1> Home Page </h1> {% endcomment %}
+<h3>hello {{user}}</h3>
+
+<div class="center" >
+    <form action="{% url 'add' %}" method="POST" style="border:1px solid #ccc " >
+        {% csrf_token %}
+        <div class="input-group mb-3">
+          <input type="text" name='note' class="form-control" placeholder="Add Your Notes" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Add</button>
+        </div>
+    </div>
+    </div>
+    </form>
+  {% if user.is_authenticated %}
+    {% for notes in user_notes %} 
+    <div class="card w-75 mb-3">
+      <div class="card-body">
+        {% comment %} <h5 class="card-title">Card title</h5> {% endcomment %}
+        <p class="card-text">{{notes.note}}</p>
+        {% comment %} <a href="#" class="btn btn-primary">Edit</a> {% endcomment %}
+        <a href="{% url 'done' pk=notes.pk %}" class="btn btn-success">Done</a>
+      </div>
+    </div>
+    {% endfor %}
+    
+    {% endif %} 
+  </div>
+  
+{% endblock %}
