@@ -1,3 +1,3 @@
 # django-todo
 
-use http to access this site at [acess the site @](http://3.235.134.57/login/) instance stopped
+use http to access this site at [acess the site @](http://52.3.225.181/) 
